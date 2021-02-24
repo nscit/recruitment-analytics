@@ -82,6 +82,7 @@ a:focus {
 }
 
 #sidebar ul p {
+    font-size: 24px;
     color: #fff;
     padding: 10px;
 }
