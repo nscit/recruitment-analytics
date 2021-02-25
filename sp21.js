@@ -1,222 +1,73 @@
-const sp21Ethnoracial = Highcharts.chart('sp21-ethnoracial', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-ethnoracial.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "Ethnoracial Identity Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
+/**
+ * @file sp21.js
+ * @author Amogh Dambal
+ * date: 2021-02-24
+ * contact: amoghdambal@utexas.edu
+ * 
+ * JavaScript code to render demographic breakdown charts of the Spring 2021
+ * recruitment cycle for the UT Natural Sciences Council.
+ */
+let charts = [];
 
-    yAxis: {
+// demographic groups evaluated as of Spring 2021
+const groups = [
+    "ethnoracial",
+    "gender",
+    "major",
+    "classification",
+    "publicity",
+    "honors",
+    "first-gen",
+    "free-response",
+];
+
+// lookup table to translate a demographic group to a graph title
+const titleLookupTable = {
+    "ethnoracial": "Ethnoracial Identity",
+    "gender": "Gender",
+    "major": "Major",
+    "classification": "Classification",
+    "publicity": "Publicity",
+    "honors": "Honors",
+    "first-gen": "First Generation",
+    "free-response": "Free Response"
+};
+
+// change these depending on semester and database configurations
+const semester = "sp21";
+const databaseVersion = "3.0.0";
+const databaseURL = "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@" + databaseVersion + "/sp21-portal-";
+const databaseFileType = ".csv";
+
+// initialize all the charts 
+for (var i = 0; i < groups.length; i++) {
+    let name = semester + "-" + groups[i];
+
+    // construct a Highcharts bar chart object
+    charts.push(Highcharts.chart(name, {
+        chart: {
+            type: 'bar'
+        },
+        data: {
+            csvURL: databaseURL + groups[i] + databaseFileType,
+            dataRefreshRate: 1,
+            enablePolling: true,
+            switchRowsAndColumns: false
+        },
         title: {
-            text: "Number of Students"
+            text: titleLookupTable[groups[i]] + " Breakdown"
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            itemMarginTop: 10,
+            itemMarginBottom: 75
+        },
+        yAxis: {
+            title: {
+                text: "Number of Students"
+            }
         }
-    }
-});
-
-const sp21Gender = Highcharts.chart('sp21-gender', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-gender.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "Gender Identity Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
-
-    yAxis: {
-        title: {
-            text: "Number of Students"
-        }
-    }
-});
-
-const sp21Major = Highcharts.chart('sp21-major', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-major.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "Major Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
-    yAxis: {
-        title: {
-            text: "Number of Students"
-        }
-    }
-});
-
-const sp21Classification = Highcharts.chart('sp21-classification', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-classification.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "Classification Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
-
-    yAxis: {
-        title: {
-            text: "Number of Students"
-        }
-    }
-});
-
-const sp21Publicity = Highcharts.chart('sp21-publicity', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-publicity.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "Publicity Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
-
-    yAxis: {
-        title: {
-            text: "Number of Students"
-        }
-    }
-});
-
-const sp21Honors = Highcharts.chart('sp21-honors', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-publicity.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "Honors Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
-
-    yAxis: {
-        title: {
-            text: "Number of Students"
-        }
-    }
-});
-
-const sp21Firstgen = Highcharts.chart('sp21-firstgen', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-first-gen.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "First Generation Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
-
-    yAxis: {
-        title: {
-            text: "Number of Students"
-        }
-    }
-});
-
-const sp21FreeResponse = Highcharts.chart('sp21-fr', {
-    chart: {
-        type: 'bar',
-    },
-    data: {
-        csvURL: "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@3.0.0/sp21-portal-free-response.csv",
-        dataRefreshRate: 1,
-        enablePolling: true,
-        switchRowsAndColumns: false
-    },
-    title: {
-        text: "Free Response Breakdown"
-    },
-    legend: {
-        enabled: true,
-        layout: 'vertical',
-        align: 'right',
-        itemMarginTop: 10,
-        itemMarginBottom: 75
-    },
-
-    yAxis: {
-        title: {
-            text: "Number of Students"
-        }
-    }
-});
+    }));
+}
