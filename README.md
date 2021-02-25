@@ -6,4 +6,4 @@ Visit the web application to see our recruitment demographics at https://nscit.g
 
 ## Contact Us
 Have a question about the data? Find a bug in the web application?
-Contact the NSC Tech Coordinator at nsc.it.director@gmail.com.
+Contact the NSC Tech Coordinator at nsc.it.director@gmail.com and make sure to put `Github-RecruitmentAnalytics` in the subject line.
