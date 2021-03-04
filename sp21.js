@@ -18,7 +18,7 @@ const groups = [
     "publicity",
     "honors",
     "first-gen",
-    "free-response",
+    "free-response"
 ];
 
 // lookup table to translate a demographic group to a graph title
@@ -30,7 +30,7 @@ const titleLookupTable = {
     "publicity": "Publicity",
     "honors": "Honors",
     "first-gen": "First Generation",
-    "free-response": "Free Response"
+    "free-response": "Optional Application Question"
 };
 
 // change these depending on semester and database configurations

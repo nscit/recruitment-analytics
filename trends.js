@@ -58,7 +58,7 @@ const trendTitleLookupTable = {
     "publicity": "Publicity",
     "honors": "Honors",
     "first-gen": "First Generation",
-    "free-response": "Free Response"
+    "free-response": "Optional Application Question"
 };
 
 // these shouldn't change, but if the CSV file request is failing, one of
