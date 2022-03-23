@@ -77,7 +77,7 @@ for (var i = 0; i < evaluationCategories.length; i++) {
             },
             data: {
                 // add the v2 to mark version 2 of the files in the NSC database
-                csvURL: trendDatabaseURL + evaluationCategories[i] + "-" + demographicGroups[j] + "-v2" + trendDatabaseFileType,
+                csvURL: trendDatabaseURL + evaluationCategories[i] + "-" + demographicGroups[j] + "-v3" + trendDatabaseFileType,
                 dataRefreshRate: 1,
                 enablePolling: true,
                 switchRowsAndColumns: true
