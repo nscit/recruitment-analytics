@@ -35,7 +35,7 @@ const titleLookupTable = {
 
 // change these depending on semester and database configurations
 const semester = "fa21";
-const databaseVersion = "3.0.0";
+const databaseVersion = "4.0.0";
 const databaseURL = "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@" + databaseVersion + "/fa21-portal-";
 const databaseFileType = ".csv";
 

@@ -63,7 +63,7 @@ const trendTitleLookupTable = {
 
 // these shouldn't change, but if the CSV file request is failing, one of
 // these config settings are likely the issue
-const trendDatabaseVersion = "2.0.0";
+const trendDatabaseVersion = "4.0.0";
 const trendDatabaseURL = "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@" + trendDatabaseVersion + "/";
 const trendDatabaseFileType = ".csv";
 
@@ -77,7 +77,7 @@ for (var i = 0; i < evaluationCategories.length; i++) {
             },
             data: {
                 // add the v2 to mark version 2 of the files in the NSC database
-                csvURL: trendDatabaseURL + evaluationCategories[i] + "-" + demographicGroups[j] + "-v2" + trendDatabaseFileType,
+                csvURL: trendDatabaseURL + evaluationCategories[i] + "-" + demographicGroups[j] + "-v3" + trendDatabaseFileType,
                 dataRefreshRate: 1,
                 enablePolling: true,
                 switchRowsAndColumns: true
