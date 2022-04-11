@@ -63,7 +63,7 @@ const trendTitleLookupTable = {
 
 // these shouldn't change, but if the CSV file request is failing, one of
 // these config settings are likely the issue
-const trendDatabaseVersion = "4.0.0";
+const trendDatabaseVersion = "4.0.1";
 const trendDatabaseURL = "https://cdn.jsdelivr.net/gh/UT-Natural-Sciences-Council/database@" + trendDatabaseVersion + "/";
 const trendDatabaseFileType = ".csv";
 
